@@ -8,7 +8,7 @@ import {
   useRouteError,
 } from "@remix-run/react";
 
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction } from "@vercel/remix";
 import stylesheet from "~/tailwind.css?url";
 import Navbar from "./components/Navbar";
 
