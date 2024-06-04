@@ -23,7 +23,7 @@ export function Layout() {
   const location = useLocation()
   const children = useOutlet()
   return (
-    <html lang="en" data-theme="dim">
+    <html lang="en" data-theme="cupcake">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,9 +33,11 @@ export function Layout() {
       </head>
       <body>
         <Navbar />
-        <AnimatePresence mode="wait">
-          {children && cloneElement(children, { key: location.pathname + location.hash })}
-        </AnimatePresence>
+        <div className="min-h-[80vh]">
+          <AnimatePresence mode="wait">
+            {children && cloneElement(children, { key: location.pathname + location.hash })}
+          </AnimatePresence>
+        </div>
         <Footer />
         <ScrollRestoration />
         <Scripts />

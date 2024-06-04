@@ -23,30 +23,29 @@ export default function Index() {
   return (
     <AnimatedPage>
       <div className="hero min-h-screen" style={{backgroundImage: `url(${bgImg})`}}>
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center">
+        <div className="hero-overlay"></div>
+        <div className="hero-content text-center text-accent z-50">
           <div className="max-w-md">
             <h1 className="text-5xl text-primary font-bold">Moonflower Labs</h1>
             <p className="py-6"> Web <span className="text-primary font-bold">Solutions </span>
                 for small companies</p>
 
-                <TypeAnimation
-              sequence={[
-                "Front End",
-                1000,
-                "Back End",
-                1000,
-                "Databases",
-                1000,
-                "API's",
-                1000,
-              ]}
-              wrapper="div"
-              speed={50}
-              className="mb-4 text-2xl font-semibold block"
-              repeat={Infinity}
+              <TypeAnimation
+                sequence={[
+                  "Front End",
+                  1000,
+                  "Back End",
+                  1000,
+                  "Databases",
+                  1000,
+                  "API's",
+                  1000,
+                ]}
+                speed={50}
+                className="mb-4 text-2xl text-primary font-semibold block"
+                repeat={Infinity}
             />
-            <Link to={"projects"} className="btn btn-primary">Learn more</Link>
+            <Link to={"about"} className="btn btn-primary">Learn more</Link>
           </div>
         </div>
       </div>

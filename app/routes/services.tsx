@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedPage from "~/components/AnimatedPage";
 
 
 
@@ -32,7 +33,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="h-max">
+    <AnimatedPage>
         <div className="max-w-[1024px] m-auto p-4">
             <h2 className="text-4xl xl:text-6xl font-bold text-center text-primary mb-4">
                 Services
@@ -69,6 +70,6 @@ export default function Services() {
                 })}
             </ul>
         </div>
-    </section>
+    </AnimatedPage>
   )
 }

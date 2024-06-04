@@ -4,6 +4,7 @@ import Pagination from "~/components/Pagination"
 import { fakeDb } from "~/data/fakedb.server";
 import { useLoaderData } from "@remix-run/react";
 import { Project } from "~/utils/definitions";
+import AnimatedPage from "~/components/AnimatedPage";
 
 export function loader(){
   
@@ -20,8 +21,7 @@ export default function Projects () {
 
   return (
     
-    <section 
-      className="">
+    <AnimatedPage>
       <div className="max-w-[1024px] m-auto p-4 py-16">
         <h1 className="text-4xl font-bold text-center text-primary">
           Projects
@@ -57,6 +57,6 @@ export default function Projects () {
           totalPages={totalPages}
         />
       )}
-    </section>
+    </AnimatedPage>
   );
 }
