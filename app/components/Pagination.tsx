@@ -1,13 +1,23 @@
+import { useNavigate } from "@remix-run/react";
+import { useCallback } from "react";
 
-const Pagination = ({
-  currentPage,
-  totalPages,
-  handlePreviousPage,
-  handleNextPage,
-  handleClickPage
-}:PaginationProps) => {
+const Pagination = ({ currentPage, totalPages ,setCurrentPage }:PaginationProps) => {
+  const navigate = useNavigate();
 
   const pagesArray = Array.from({ length: totalPages }, (_, index) => index + 1);
+
+
+  const handlePreviousPage = useCallback(() => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  }, [setCurrentPage]);
+
+  const handleNextPage = useCallback(() => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  }, [setCurrentPage]);
+ const handleClickPage = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+  setCurrentPage(parseInt(e.currentTarget.value));
+  navigate(`?page=${parseInt(e.currentTarget.value)}`);
+ },[navigate, setCurrentPage]);
 
   return (
     <div className="flex justify-center gap-5 mt-8 pb-5">
@@ -35,8 +45,6 @@ const Pagination = ({
       >
         &gt;
       </button>
-
-    
     </div>
     
   );
@@ -44,9 +52,8 @@ const Pagination = ({
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  handlePreviousPage(): void,
-  handleNextPage(): void,
-  handleClickPage(): void,
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+ 
 }
 
 export default Pagination;

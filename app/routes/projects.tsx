@@ -1,146 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import ProjectItem from "~/components/ProjectItem";
-import dasboargImg from "~/images/nextjs-dashboard.jpeg"
-import beautyImg from "~/images/beauty.jpeg"
-import weatherImg from "~/images/weatherApp.jpeg";
-import florImg from "~/images/florBlanca.jpeg";
-import gameImg from "~/images/game.jpeg";
-import notesImg from "~/images/notesApp.jpeg";
-import todoImg from "~/images/todoApp.jpeg";
 import Pagination from "~/components/Pagination"
-import { TbBrandNextjs } from "react-icons/tb";
-import { AiFillHtml5 } from "react-icons/ai";
-import { RiJavascriptLine } from "react-icons/ri";
-import { FaPython, FaCss3, FaBootstrap } from "react-icons/fa";
-import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
-import { SiTailwindcss } from "react-icons/si";
+import { fakeDb } from "~/data/fakedb.server";
+import { useLoaderData } from "@remix-run/react";
 import { Project } from "~/utils/definitions";
-import { useLocation, useNavigate } from "@remix-run/react";
 
-const projectData: Project[] = [
-  {
-    id: 1,
-     img: dasboargImg,
-    title: "NextJS Dashboard",
-    link: "https://nextjs-dashboard-lilac-ten.vercel.app/dashboard",
-    icons: [
-      <BiLogoReact key={1} />,
-      <SiTailwindcss key={2} />,
-      <TbBrandNextjs key={3} />,
-      <BiLogoTypescript key={4} />,
-    ],
-    action: "Visit Site",
-    info: "Dasboard website deployed in Vercel with Postgres database",
-  },
-  {
-    id: 2,
-    img: beautyImg,
-    title: "Natural Theraphy",
-    link: "https://moonflower-labs.github.io/Moonflowerlabs/Paula/index.html",
-    icons: [
-      <AiFillHtml5 key={1} />,
-      <FaCss3 key={2} />,
-      <FaBootstrap key={3} />,
-      <RiJavascriptLine key={4} />,
-    ],
-    action: "Visit Site",
-    info: "Front end business site, HTML, CSS, Javascript and Bootstrap 5.",
-  },
-  {
-    id: 3,
-    img: weatherImg,
-    title: "Weather App",
-    link: "https://moonflower-labs.github.io/Moonflowerlabs/weatherApp/index.html",
-    icons: [
-      <AiFillHtml5 key={1} />,
-      <FaCss3 key={2} />,
-      <FaBootstrap key={3} />,
-      <RiJavascriptLine key={4} />,
-    ],
-    action: "Check Weather",
-    info: "Weather application using the Open Weather API.",
-  },
-  {
-    id: 4,
-    img: florImg,
-    title: "Subscriptions/E-commerce Site",
-    link: "https://laflorblanca.com",
-    icons: [
-      <AiFillHtml5 key={1} />,
-      <FaCss3 key={2} />,
-      <FaBootstrap key={3} />,
-      <RiJavascriptLine key={4} />,
-      <FaPython key={5} />,
-    ],
-    action: "Visit Site",
-    info: "Python (Flask) webb app. Postgresql Database and Stripe API.",
-  },
-  {
-    id: 5,
-    img: gameImg,
-    title: "Flip Card Game",
-    link: "https://moonflower-labs.github.io/Moonflowerlabs/flipcardGame/index.html",
-    icons: [
-      <AiFillHtml5 key={1} />,
-      <FaCss3 key={2} />,
-      <FaBootstrap key={3} />,
-      <RiJavascriptLine key={4} />,
-    ],
-    action: "Play Game",
-    info: "Fun project built with Vanilla Javascript.",
-  },
-  {
-    id: 6,
-    img: todoImg,
-    title: "Todo App",
-    link: "https://todo-app-a5f0c.web.app",
-    icons: [
-      <AiFillHtml5 key={1} />,
-      <FaCss3 key={2} />,
-      <BiLogoTypescript key={3} />,
-    ],
-    action: "Try Out",
-    info: "Todo app built with Typescript.",
-  },
-  {
-    id: 7,
-    img: notesImg,
-    title: "Notes App",
-    link: "https://moonflower-labs.github.io/Moonflowerlabs/notesApp/index.html",
-    icons: [
-      <AiFillHtml5 key={1} />,
-      <FaCss3 key={2} />,
-      <FaBootstrap key={3} />,
-      <RiJavascriptLine key={4} />,
-    ],
-    action: "Try Out",
-    info: "Notess app using Local Storage, built in Vanilla JS and Bootstrap 5.",
-  },
-];
+export function loader(){
+  
+  return fakeDb.projectData
+}
+
 
 export default function Projects () {
+  const  projectData = useLoaderData() as Project[] || []
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(projectData.length / itemsPerPage);
 
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  
-  const handlePreviousPage = useCallback(() => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  }, []);
-
-  const handleNextPage = useCallback(() => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  }, []);
- const handleClickPage = useCallback((e) => {
-  setCurrentPage(parseInt(e.target.value));
-  navigate(`?page=${parseInt(e.target.value)}`);
- },[navigate]);
-
-  
 
   return (
     
@@ -176,12 +52,9 @@ export default function Projects () {
       </div>
       {projectData && projectData.length > itemsPerPage && (
         <Pagination
-          currentPage={parseInt(currentPage)}
+          currentPage={currentPage as number}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
-          handlePreviousPage={handlePreviousPage}
-          handleNextPage={handleNextPage}
-          handleClickPage={handleClickPage}
         />
       )}
     </section>

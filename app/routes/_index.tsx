@@ -3,6 +3,7 @@ import { Link, isRouteErrorResponse, useRouteError } from "@remix-run/react";
 import bgImg from "~/images/bg.jpg"
 // import { prisma } from "~/db.server";
 import AnimatedPage from "~/components/AnimatedPage";
+import { TypeAnimation } from "react-type-animation";
 
 export const meta: MetaFunction = () => {
   return [
@@ -28,6 +29,23 @@ export default function Index() {
             <h1 className="text-5xl text-primary font-bold">Moonflower Labs</h1>
             <p className="py-6"> Web <span className="text-primary font-bold">Solutions </span>
                 for small companies</p>
+
+                <TypeAnimation
+              sequence={[
+                "Front End",
+                1000,
+                "Back End",
+                1000,
+                "Databases",
+                1000,
+                "API's",
+                1000,
+              ]}
+              wrapper="div"
+              speed={50}
+              className="mb-4 text-2xl font-semibold block"
+              repeat={Infinity}
+            />
             <Link to={"projects"} className="btn btn-primary">Learn more</Link>
           </div>
         </div>

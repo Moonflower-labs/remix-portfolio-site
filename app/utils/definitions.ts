@@ -10,3 +10,10 @@ export interface Project {
     icons: ReactNode[]
 
 }
+
+export interface Work {
+    year: number;
+    title: string;
+    duration: string;
+    description: string;
+  }

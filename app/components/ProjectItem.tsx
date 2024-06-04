@@ -2,15 +2,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
+import { renderToString } from "react-dom/server";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import type { Project } from "~/utils/definitions";
 
 const ProjectItem = ({project}: {project: Project}) => {
+
   const [showInfo, setShowInfo] = useState(false);
 
   const handleClik = () => {
     setShowInfo(!showInfo);
   };
+  
   return (
     <div className="relative flex items-center justify-center h-auto w-full shadow-lg shadow-primary/40 rounded-xl group hover:bg-gradient-to-r from-primary/50 to-base-300 ease-linear duration-300 overflow-hidden">
       <img
@@ -23,7 +26,9 @@ const ProjectItem = ({project}: {project: Project}) => {
           {project.title}
         </h3>
         <div className="flex text-gray-300 w-full max-w-full justify-around pt-2 mb-6 lg:mb-10">
-          {project.icons}
+        {project?.icons.map((icon, index) => (
+            <span key={index}>{ renderToString(icon) }</span>
+        ))}
         </div>
         <a href={project.link} target="_blank" rel="noreferrer" className="btn btn-primary">
             {project.action}
