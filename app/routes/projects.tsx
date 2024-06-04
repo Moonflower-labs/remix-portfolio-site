@@ -1,23 +1,24 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ProjectItem from "~/components/ProjectItem";
 import dasboargImg from "~/images/nextjs-dashboard.jpeg"
 import beautyImg from "~/images/beauty.jpeg"
 import weatherImg from "~/images/weatherApp.jpeg";
 import florImg from "~/images/florBlanca.jpeg";
-// import gameImg from "../assets/game.jpeg";
-// import notesImg from "../assets/notesApp.jpeg";
-// import todoImg from "../assets/todoApp.jpeg";
-// import nextDashboard from "../assets/nextjs-dashboard.jpeg";
-// import Pagination from "../components/Pagination";
+import gameImg from "~/images/game.jpeg";
+import notesImg from "~/images/notesApp.jpeg";
+import todoImg from "~/images/todoApp.jpeg";
+import Pagination from "~/components/Pagination"
 import { TbBrandNextjs } from "react-icons/tb";
 import { AiFillHtml5 } from "react-icons/ai";
 import { RiJavascriptLine } from "react-icons/ri";
 import { FaPython, FaCss3, FaBootstrap } from "react-icons/fa";
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
+import { Project } from "~/utils/definitions";
+import { useLocation, useNavigate } from "@remix-run/react";
 
-const projectData = [
+const projectData: Project[] = [
   {
     id: 1,
      img: dasboargImg,
@@ -77,7 +78,7 @@ const projectData = [
   },
   {
     id: 5,
-    // img: gameImg,
+    img: gameImg,
     title: "Flip Card Game",
     link: "https://moonflower-labs.github.io/Moonflowerlabs/flipcardGame/index.html",
     icons: [
@@ -91,7 +92,7 @@ const projectData = [
   },
   {
     id: 6,
-    // img: todoImg,
+    img: todoImg,
     title: "Todo App",
     link: "https://todo-app-a5f0c.web.app",
     icons: [
@@ -104,7 +105,7 @@ const projectData = [
   },
   {
     id: 7,
-    // img: notesImg,
+    img: notesImg,
     title: "Notes App",
     link: "https://moonflower-labs.github.io/Moonflowerlabs/notesApp/index.html",
     icons: [
@@ -121,9 +122,23 @@ const projectData = [
 export default function Projects () {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
-//   const totalPages = Math.ceil(projectData.length / itemsPerPage);
-//   const location = useLocation();
-//   const navigate = useNavigate();
+  const totalPages = Math.ceil(projectData.length / itemsPerPage);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  
+  const handlePreviousPage = useCallback(() => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  }, []);
+
+  const handleNextPage = useCallback(() => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  }, []);
+ const handleClickPage = useCallback((e) => {
+  setCurrentPage(parseInt(e.target.value));
+  navigate(`?page=${parseInt(e.target.value)}`);
+ },[navigate]);
 
   
 
@@ -131,8 +146,8 @@ export default function Projects () {
     
     <section 
       className="">
-      <div className="max-w-[1024px] m-auto md:pl-20 p-4 py-16">
-        <h1 className="text-4xl font-bold text-center  text-primary">
+      <div className="max-w-[1024px] m-auto p-4 py-16">
+        <h1 className="text-4xl font-bold text-center text-primary">
           Projects
         </h1>
         <p className="text-center py-8">
@@ -140,7 +155,7 @@ export default function Projects () {
           built. 
         </p>
         {projectData ? (
-          <div className="grid sm:grid-cols-2 gap-12 ">
+          <div className="grid sm:grid-cols-2 gap-12">
             {projectData
               .slice(
                 (currentPage - 1) * itemsPerPage,
@@ -149,12 +164,7 @@ export default function Projects () {
               .map((project) => (
                 <ProjectItem
                   key={project.id}
-                  img={project.img as string}
-                  title={project.title}
-                  link={project.link}
-                  icons={project.icons}
-                  info={project.info}
-                  action={project.action}
+                  project={project}
                 />
               ))}
           </div>
@@ -164,7 +174,7 @@ export default function Projects () {
           </p>
         )}
       </div>
-      {/* {projectData && projectData.length > itemsPerPage && (
+      {projectData && projectData.length > itemsPerPage && (
         <Pagination
           currentPage={parseInt(currentPage)}
           setCurrentPage={setCurrentPage}
@@ -173,7 +183,7 @@ export default function Projects () {
           handleNextPage={handleNextPage}
           handleClickPage={handleClickPage}
         />
-      )} */}
+      )}
     </section>
   );
 }

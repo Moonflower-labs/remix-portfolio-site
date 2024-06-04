@@ -5,29 +5,38 @@ import {
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
+  useLocation,
+  useOutlet,
   useRouteError,
 } from "@remix-run/react";
 
-import type { LinksFunction } from "@vercel/remix";
-import stylesheet from "~/tailwind.css?url";
 import Navbar from "./components/Navbar";
+import  "./tailwind.css";
+import Footer from "./components/Footer";
+import { AnimatePresence } from "framer-motion";
+import { cloneElement } from "react";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+
+
+export function Layout() {
+  const location = useLocation()
+  const children = useOutlet()
   return (
     <html lang="en" data-theme="dim">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <link rel="icon" href="/flowerLogo.jpeg" type="image/jpeg" />
         <Links />
       </head>
       <body>
         <Navbar />
-        {children}
+        <AnimatePresence mode="wait">
+          {children && cloneElement(children, { key: location.pathname + location.hash })}
+        </AnimatePresence>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
