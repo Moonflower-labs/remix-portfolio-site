@@ -15,6 +15,7 @@ export default {
       "fantasy",
       "dim",
       "emerald",
+      "night",
     ],
   }
 } satisfies Config

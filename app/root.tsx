@@ -1,7 +1,6 @@
 import {
   Links,
   Meta,
-  Outlet,
   Scripts,
   ScrollRestoration,
   isRouteErrorResponse,
@@ -11,19 +10,33 @@ import {
 } from "@remix-run/react";
 
 import Navbar from "./components/Navbar";
-import  "./tailwind.css";
+import "./tailwind.css";
 import Footer from "./components/Footer";
-import { AnimatePresence } from "framer-motion";
-import { cloneElement } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+const routeVariants = {
+  initial: {
+    opacity: 0,
+    filter: "blur(5px)",
+  },
+  final: {
+    x: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+  },
+  exit: {
+    x: -600,
+    opacity: 0,
+    filter: "blur(5px)",
+    transition: { ease: "easeOut" },
+  },
+};
 
 
+export function Layout({ children }: { children: React.ReactNode }) {
 
-
-export function Layout() {
-  const location = useLocation()
-  const children = useOutlet()
   return (
-    <html lang="en" data-theme="cupcake">
+    <html lang="en" data-theme="night">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,11 +45,9 @@ export function Layout() {
         <Links />
       </head>
       <body>
-        <Navbar />
-        <div className="min-h-[80vh]">
-          <AnimatePresence mode="wait">
-            {children && cloneElement(children, { key: location.pathname + location.hash })}
-          </AnimatePresence>
+        <div className="min-h-[80vh] bg-base-100">
+          <Navbar />
+          {children}
         </div>
         <Footer />
         <ScrollRestoration />
@@ -47,12 +58,28 @@ export function Layout() {
 }
 
 export default function App() {
-  return <Outlet />;
+  const outlet = useOutlet()
+  const location = useLocation()
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        variants={routeVariants}
+        initial="initial"
+        animate="final"
+        transition={{ duration: 0.4 }}
+        exit={"exit"}
+      >
+        {outlet}
+      </motion.div>
+    </AnimatePresence>);
 }
 
 export function ErrorBoundary() {
   const error = useRouteError() as Error;
   console.error(error);
+
   return (
     <html lang="en">
       <head>
