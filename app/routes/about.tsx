@@ -27,7 +27,7 @@ export default function About() {
           web design, databases, UI, consulting, and web development. Our
           expertise in these areas allows us to deliver tailored solutions
           that meet the specific needs of our clients. For a brief
-          overview of each of these services, visit the <Link to={"/services"} className="link-primary">Services section</Link>.
+          overview of each of these services, visit the <Link to={"/services"} className="link-primary underline">Services section</Link>.
         </p>
       </div>
     </div>
