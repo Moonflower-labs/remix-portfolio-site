@@ -25,9 +25,8 @@ export default function Index() {
       <div className="hero-content text-center text-accent z-50 mx-6">
         <div className="max-w-md">
           <h1 className="text-5xl text-primary font-bold">Moonflower Labs</h1>
-          <p className="py-6"> Web <span className="text-primary font-bold">Solutions </span>
-            for small companies</p>
-
+          <p className="py-6">Custom <span className="text-primary font-bold">Web Solutions </span>
+            for growing businesses</p>
           <TypeAnimation
             sequence={[
               "Front End",
@@ -36,6 +35,8 @@ export default function Index() {
               1000,
               "Databases",
               1000,
+              "Payment Gateways",
+              1000,
               "API's",
               1000,
             ]}
@@ -43,7 +44,7 @@ export default function Index() {
             className="mb-4 text-2xl text-primary font-semibold block"
             repeat={Infinity}
           />
-          <Link to={"about"} className="btn btn-primary">Learn more</Link>
+          <Link to={"/about"} className="btn btn-primary">Learn more</Link>
         </div>
       </div>
     </div>
@@ -71,6 +72,5 @@ export function ErrorBoundary() {
         </p>
       </div>
     </div>
-
   );
 }
