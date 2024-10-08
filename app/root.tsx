@@ -45,8 +45,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <div className="min-h-[80vh] bg-base-100">
-          <Navbar />
+        <Navbar />
+        <div className="min-h-screen bg-base-100">
           {children}
         </div>
         <Footer />

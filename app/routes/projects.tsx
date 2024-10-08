@@ -5,8 +5,14 @@ import { fakeDb } from "~/data/fakedb.server";
 import { useLoaderData } from "@remix-run/react";
 import { Project } from "~/utils/definitions";
 
-export function loader() {
 
+export function headers() {
+  return {
+    "Cache-Control": "s-max-age=259200, stale-while-revalidate=86400, stale-if-error=604800"
+  }
+}
+
+export function loader() {
   return fakeDb.projectData
 }
 
