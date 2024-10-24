@@ -1,14 +1,13 @@
 import { useLoaderData } from "@remix-run/react";
 import WorkItem from "~/components/WorkItem";
 import { fakeDb } from '~/data/fakedb.server';
-import type { Work } from '~/utils/definitions';
 
 export function loader() {
   return fakeDb.workData
 }
 export default function Timeline() {
 
-  const data = useLoaderData() as Work[] || []
+  const data = useLoaderData<typeof loader>() || [];
 
   return (
     <div className="max-w-[1040px] m-auto p-4 py-16">

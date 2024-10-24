@@ -32,6 +32,11 @@ const routeVariants = {
   },
 };
 
+export function headers() {
+  return {
+    "Cache-Control": "s-max-age=259200, stale-while-revalidate=86400, stale-if-error=604800"
+  }
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
 
