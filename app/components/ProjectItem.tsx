@@ -3,32 +3,32 @@ import { renderToString } from "react-dom/server";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import type { Project } from "~/utils/definitions";
 
-const ProjectItem = ({project}: {project: Project}) => {
+const ProjectItem = ({ project }: { project: Project }) => {
 
   const [showInfo, setShowInfo] = useState(false);
 
   const handleClik = () => {
     setShowInfo(!showInfo);
   };
-  
+
   return (
     <div className="relative flex items-center justify-center h-auto w-full shadow-lg shadow-primary/40 rounded-xl group hover:bg-gradient-to-r from-primary/50 to-base-300 ease-linear duration-300 overflow-hidden">
       <img
         src={project.img}
         alt={project.title}
-        className="rounded-xl group-hover:opacity-10"
+        className="rounded-xl group-hover:opacity-10 group-active:opacity-10"
       />
-      <div className="opacity-0 group-hover:opacity-100 ease-linear duration-1000 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
+      <div className="opacity-0 group-hover:opacity-100 group-active:opacity-100 ease-linear duration-1000 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center">
         <h3 className="md:text-2xl text-xl font-bold text-yellow-100 tracking-wider text-center mb-4">
           {project.title}
         </h3>
         <div className="flex text-gray-300 w-full max-w-full justify-around pt-2 mb-6 lg:mb-10">
-        {project?.icons.map((icon, index) => (
-            <span key={index}>{ icon }</span>
-        ))}
+          {project?.icons.map((icon, index) => (
+            <span key={index}>{icon}</span>
+          ))}
         </div>
         <a href={project.link} target="_blank" rel="noreferrer" className="btn btn-primary">
-            {project.action}
+          {project.action}
         </a>
       </div>
       <p
