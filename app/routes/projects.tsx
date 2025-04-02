@@ -21,7 +21,7 @@ export async function clientLoader() {
 export default function Projects({ loaderData }: Route.ComponentProps) {
   const projectData = loaderData as Project[] || [];
   const [searchParams, setSearchParams] = useSearchParams()
-  const [currentPage, setCurrentPage] = useState(Number(searchParams.get("page")) ?? 1);
+  const [currentPage, setCurrentPage] = useState(searchParams.get("page") ? Number(searchParams.get("page")) : 1);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(projectData.length / itemsPerPage);
 
