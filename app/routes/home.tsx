@@ -1,4 +1,4 @@
-import { Link, isRouteErrorResponse, useRouteError } from "react-router";
+import { Link, href, isRouteErrorResponse } from "react-router";
 import bgImg from "~/images/bg.jpg"
 import type { Route } from "./+types/home"
 import { TypeAnimation } from "react-type-animation";
@@ -6,31 +6,26 @@ import { TypeAnimation } from "react-type-animation";
 export const meta: Route.MetaFunction = () => {
   return [
     { title: "Moonflower Labs Site" },
-    { name: "description", content: "Welcome to Remix!" },
+    { name: "description", content: "Welcome to Moonflower Labs!" },
   ];
 };
 
-export async function loader() {
-  // const users = await prisma.user.findMany()
-  // throw new Error("something occurred")
-  return null;
-}
 
 export default function Index() {
 
   return (
     <div className="hero min-h-screen" style={{ backgroundImage: `url(${bgImg})` }}>
       <div className="hero-overlay"></div>
-      <div className="hero-content text-center z-50 mx-6">
+      <div className="hero-content text-center text-primary-content z-50 mx-6">
         <div className="max-w-md">
           <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold">Moonflower Labs</h1>
           <p className="py-6">Custom <span className="text-primary font-bold">Web Solutions </span>
             for growing businesses</p>
           <TypeAnimation
             sequence={[
-              "Front End",
+              "Frontend",
               1000,
-              "Back End",
+              "Backend",
               1000,
               "Databases",
               1000,
@@ -43,16 +38,16 @@ export default function Index() {
             className="mb-4 text-2xl text-primary font-semibold block"
             repeat={Infinity}
           />
-          <Link to={"/about"} className="btn btn-primary">Learn more</Link>
+          <Link to={href("/about")} className="btn btn-primary">Learn more</Link>
         </div>
       </div>
     </div>
   );
 }
 
-export function ErrorBoundary() {
-  const error = useRouteError() as Error;
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   console.error(error);
+
   return (
 
     <div
@@ -65,8 +60,8 @@ export function ErrorBoundary() {
         <p className="text-2xl text-error">
           <i>
             {isRouteErrorResponse(error)
-              ? error.statusText || error.message
-              : error.message}
+              ? error.statusText
+              : error instanceof Error ? error.message : "Unknown"}
           </i>
         </p>
       </div>

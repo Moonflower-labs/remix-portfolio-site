@@ -7,11 +7,6 @@ import type { Route } from "./+types/projects"
 import { useSearchParams } from "react-router";
 
 
-export function headers() {
-  return {
-    "Cache-Control": "s-max-age=259200, stale-while-revalidate=86400, stale-if-error=604800"
-  }
-}
 
 export async function clientLoader() {
   return fakeDb.projectData

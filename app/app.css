@@ -6,5 +6,9 @@
 
 @plugin "daisyui/theme" {
   name: "cmyk";
+  --color-base-100: oklch(96% 0.018 272.314);
+  --color-base-200: oklch(93% 0.034 272.788);
+  --color-primary: oklch(39% 0.195 277.366);
+  --color-primary-content: oklch(78% 0.115 274.713);
   --color-secondary: oklch(71% 0.203 305.504);
 }

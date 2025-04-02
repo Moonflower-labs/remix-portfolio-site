@@ -1,13 +1,12 @@
-import { useLoaderData } from "react-router";
 import WorkItem from "~/components/WorkItem";
 import { fakeDb } from '~/data/fakedb';
+import { Route } from "./+types/timeline";
 
-export function loader() {
+export async function clientLoader() {
   return fakeDb.workData
 }
-export default function Timeline() {
-
-  const data = useLoaderData<typeof loader>() || [];
+export default function Timeline({ loaderData }: Route.ComponentProps) {
+  const data = loaderData || [];
 
   return (
     <div className="max-w-[1040px] m-auto p-4 py-16">

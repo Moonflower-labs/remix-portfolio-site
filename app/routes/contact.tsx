@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function Contact() {
-
-
-
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -45,8 +42,8 @@ export default function Contact() {
   return (
     <div className="max-w-[1040px] mx-6 md:mx-auto text-center">
       <h1 className="text-5xl bg-gradient-to-r py-3 from-primary to-secondary bg-clip-text text-transparent inline-block font-bold mb-4">
-         Contact Us
-      </h1> 
+        Contact Us
+      </h1>
       <p className="text-center pb-3 mb-6">
         Use the form below to contact us directly.
       </p>
