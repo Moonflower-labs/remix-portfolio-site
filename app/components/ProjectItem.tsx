@@ -40,15 +40,18 @@ const ProjectItem = ({ project }: { project: Project }) => {
             {project.action}
           </span>
         ) : (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noreferrer"
-            className={`btn btn-primary ${!isOpen ? "pointer-events-none" : ""}`}
-            onClick={(e) => e.stopPropagation()} // Stops card toggle when clicking link
-          >
-            {project.action}
-          </a>
+          <>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className={`btn btn-primary ${!isOpen ? "pointer-events-none" : ""}`}
+                onClick={(e) => e.stopPropagation()} // Stops card toggle when clicking link
+              >
+                {project.action}
+              </a>)}
+          </>
         )}
       </div>
       <p

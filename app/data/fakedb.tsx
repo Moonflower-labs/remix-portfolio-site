@@ -5,6 +5,7 @@ import florImg from "~/images/florBlanca.jpeg";
 import gameImg from "~/images/game.jpeg";
 import notesImg from "~/images/notesApp.jpeg";
 import todoImg from "~/images/todoApp.jpeg";
+import songImg from "~/images/song-studio.png";
 import { TbBrandNextjs } from "react-icons/tb";
 import { AiFillHtml5 } from "react-icons/ai";
 import { RiJavascriptLine } from "react-icons/ri";
@@ -87,6 +88,17 @@ export const fakeDb = {
     },
     {
       id: 6,
+      img: songImg,
+      title: "Song Studio App",
+      icons: [
+        <AiFillHtml5 />,
+        <FaCss3 />,
+        <BiLogoTypescript />,
+      ],
+      info: "Song Studio app.",
+    },
+    {
+      id: 7,
       img: todoImg,
       title: "Todo App",
       link: "https://todo-app-a5f0c.web.app",
@@ -99,7 +111,7 @@ export const fakeDb = {
       info: "Todo app built with Typescript.",
     },
     {
-      id: 7,
+      id: 8,
       img: notesImg,
       title: "Notes App",
       link: "https://moonflower-labs.github.io/Moonflowerlabs/notesApp/index.html",
