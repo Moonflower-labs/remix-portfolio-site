@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-gradient-to-r from-primary/90 to-purple-700/80 sticky top-0 z-[100] shadow-lg rounded-lg">
+    <div className="navbar bg-gradient-to-r from-primary/90 to-purple-700/80 sticky top-0 z-[100] shadow-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

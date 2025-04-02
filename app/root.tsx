@@ -42,7 +42,7 @@ export function headers() {
 export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
-    <html lang="en" data-theme="night">
+    <html lang="en" data-theme="cmyk">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -52,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Navbar />
-        <div className="min-h-screen bg-base-200">
+        <div className="min-h-screen">
           {children}
         </div>
         <Footer />

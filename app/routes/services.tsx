@@ -64,7 +64,7 @@ export default function Services({ loaderData }: Route.ComponentProps) {
         {services && services.map((service) => (
           <div
             key={service.id}
-            className="bg-base-300 rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            className="bg-base-200/40 rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             <h2 className="text-2xl font-bold text-primary mb-3">
               {service.title}
