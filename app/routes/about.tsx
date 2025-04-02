@@ -1,11 +1,11 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 
 export default function About() {
   return (
     <div className="max-w-[1024px] m-auto p-4 py-8 text-center">
-      <h2 className="text-4xl xl:text-6xl font-bold text-center text-primary mb-4 py-8">
-        About
-      </h2>
+      <h1 className="text-5xl bg-gradient-to-r py-3 from-primary to-secondary bg-clip-text text-transparent inline-block font-bold mb-4 py-8">
+         About Us
+      </h1> 
       <div className="flex flex-col gap-4">
         <p className="px-8 text-xl">
           Moonflower Labs is a software development company focused on

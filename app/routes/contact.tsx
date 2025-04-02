@@ -43,10 +43,10 @@ export default function Contact() {
 
 
   return (
-    <div className="max-w-[1040px] mx-6 md:mx-auto">
-      <h1 className="py-4 text-4xl text-center font-bold text-primary mb-6">
-        Contact Us
-      </h1>
+    <div className="max-w-[1040px] mx-6 md:mx-auto text-center">
+      <h1 className="text-5xl bg-gradient-to-r py-3 from-primary to-secondary bg-clip-text text-transparent inline-block font-bold mb-4">
+         Contact Us
+      </h1> 
       <p className="text-center pb-3 mb-6">
         Use the form below to contact us directly.
       </p>
@@ -70,7 +70,7 @@ export default function Contact() {
               Phone
             </label>
             <input
-              className="input input-bordered w-full"
+              className="input w-full"
               name="phone"
               type="text"
               id="phone"
@@ -83,7 +83,7 @@ export default function Contact() {
             Email
           </label>
           <input
-            className="input input-bordered w-full"
+            className="input w-full"
             name="email"
             type="email"
             id="email"
@@ -96,7 +96,7 @@ export default function Contact() {
             Subject
           </label>
           <input
-            className="input input-bordered w-full"
+            className="input w-full"
             type="text"
             name="subject"
             id="subject"
@@ -108,7 +108,7 @@ export default function Contact() {
             Message
           </label>
           <textarea
-            className="textarea textarea-bordered"
+            className="textarea w-full"
             name="message"
             rows={10}
             id="message"

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import ProjectItem from "~/components/ProjectItem";
 import Pagination from "~/components/Pagination"
-import { fakeDb } from "~/data/fakedb.server";
-import { useLoaderData } from "@remix-run/react";
+import { fakeDb } from "~/data/fakedb";
 import { Project } from "~/utils/definitions";
+import type { Route } from "./+types/projects"
 
 
 export function headers() {
@@ -12,13 +12,13 @@ export function headers() {
   }
 }
 
-export function loader() {
+export async function clientLoader() {
   return fakeDb.projectData
 }
 
 
-export default function Projects() {
-  const projectData = useLoaderData() as Project[] || []
+export default function Projects({ loaderData }: Route.ComponentProps) {
+  const projectData = loaderData as Project[] || []
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(projectData.length / itemsPerPage);
@@ -28,7 +28,7 @@ export default function Projects() {
 
     <>
       <div className="max-w-[1024px] m-auto p-4 py-16">
-        <h1 className="text-4xl font-bold text-center text-primary">
+        <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent w-fit mx-auto p-1 font-bold mb-4">
           Projects
         </h1>
         <p className="text-center py-8">

@@ -1,10 +1,9 @@
-import type { MetaFunction } from "@vercel/remix";
-import { Link, isRouteErrorResponse, useRouteError } from "@remix-run/react";
+import { Link, isRouteErrorResponse, useRouteError } from "react-router";
 import bgImg from "~/images/bg.jpg"
-// import { prisma } from "~/db.server";
+import type { Route } from "./+types/_index"
 import { TypeAnimation } from "react-type-animation";
 
-export const meta: MetaFunction = () => {
+export const meta: Route.MetaFunction = () => {
   return [
     { title: "Moonflower Labs Site" },
     { name: "description", content: "Welcome to Remix!" },
@@ -24,7 +23,7 @@ export default function Index() {
       <div className="hero-overlay"></div>
       <div className="hero-content text-center text-accent z-50 mx-6">
         <div className="max-w-md">
-          <h1 className="text-5xl text-primary font-bold">Moonflower Labs</h1>
+          <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold">Moonflower Labs</h1>
           <p className="py-6">Custom <span className="text-primary font-bold">Web Solutions </span>
             for growing businesses</p>
           <TypeAnimation

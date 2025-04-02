@@ -7,12 +7,13 @@ import {
   useLocation,
   useOutlet,
   useRouteError,
-} from "@remix-run/react";
+} from "react-router";
 
 import Navbar from "./components/Navbar";
-import "./tailwind.css";
+
 import Footer from "./components/Footer";
 import { AnimatePresence, motion } from "framer-motion";
+import "./app.css";
 
 const routeVariants = {
   initial: {
@@ -51,7 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Navbar />
-        <div className="min-h-screen bg-base-100">
+        <div className="min-h-screen bg-base-200">
           {children}
         </div>
         <Footer />

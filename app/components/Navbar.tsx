@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import { Link } from '@remix-run/react'
+import { Link } from 'react-router';
 import { GiMoon } from 'react-icons/gi';
 import { LuSunMedium } from 'react-icons/lu';
 
@@ -13,7 +13,7 @@ const Navbar = () => {
       }; 
 
   return (
-    <div className="navbar bg-primary/90 sticky top-0 z-[100] shadow border border-primary/30 rounded-lg">
+    <div className="navbar bg-gradient-to-r from-primary/90 to-purple-700/80 sticky top-0 z-[100] shadow-lg rounded-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">

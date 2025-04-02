@@ -1,4 +1,4 @@
-import { useNavigate } from "@remix-run/react";
+import { useNavigate } from "react-router";
 import { useCallback } from "react";
 
 const Pagination = ({ currentPage, totalPages ,setCurrentPage }:PaginationProps) => {
