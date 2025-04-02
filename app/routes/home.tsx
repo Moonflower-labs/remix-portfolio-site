@@ -1,6 +1,6 @@
 import { Link, isRouteErrorResponse, useRouteError } from "react-router";
 import bgImg from "~/images/bg.jpg"
-import type { Route } from "./+types/_index"
+import type { Route } from "./+types/home"
 import { TypeAnimation } from "react-type-animation";
 
 export const meta: Route.MetaFunction = () => {

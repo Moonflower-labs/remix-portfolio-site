@@ -5,12 +5,12 @@ import { LuSunMedium } from 'react-icons/lu';
 
 const Navbar = () => {
 
-    const handleDropdown = () => {
-        const elem = document.activeElement as HTMLInputElement;
-        if (elem) {
-          elem?.blur();
-        }
-      }; 
+  const handleDropdown = () => {
+    const elem = document.activeElement as HTMLInputElement;
+    if (elem) {
+      elem?.blur();
+    }
+  };
 
   return (
     <div className="navbar bg-gradient-to-r from-primary/90 to-purple-700/80 sticky top-0 z-[100] shadow-lg rounded-lg">
@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <Link to="/" className="btn btn-ghost text-xl">Home</Link>
+        <Link to="/" className="btn btn-sm btn-outline text-xl">Home</Link>
       </div>
       <div className="navbar-end">
         <label className="swap swap-rotate">
