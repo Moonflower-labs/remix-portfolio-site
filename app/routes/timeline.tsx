@@ -10,7 +10,7 @@ export default function Timeline({ loaderData }: Route.ComponentProps) {
 
   return (
     <div className="max-w-[1040px] m-auto p-4 py-16">
-      <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent inline-block font-bold mb-4">
+      <h1 className="text-5xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent inline-block font-bold mb-4">
         Work History
       </h1>
       {data.map((item, index) => (

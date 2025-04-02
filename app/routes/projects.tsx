@@ -25,7 +25,7 @@ export default function Projects({ loaderData }: Route.ComponentProps) {
 
     <>
       <div className="max-w-[1024px] m-auto p-4 py-16">
-        <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent w-fit mx-auto p-1 font-bold mb-4">
+        <h1 className="text-5xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent w-fit mx-auto p-1 font-bold mb-4">
           Projects
         </h1>
         <p className="text-center py-8">

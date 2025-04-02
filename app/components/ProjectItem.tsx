@@ -16,16 +16,16 @@ const ProjectItem = ({ project }: { project: Project }) => {
 
   return (
     <div
-      className={`relative flex items-center justify-center h-auto w-full shadow-lg shadow-primary/40 rounded-xl group hover:bg-gradient-to-r from-primary/50 to-base-300 ease-linear duration-300 overflow-hidden ${isOpen ? "bg-gradient-to-r from-primary/50 to-base-300" : ""}`}
+      className={`relative flex items-center justify-center h-auto w-full shadow-lg shadow-primary/40 rounded-xl group hover:bg-primary/50 ease-linear duration-300 overflow-hidden ${isOpen ? "bg-gradient-to-r from-primary/50 to-base-300" : ""}`}
       onClick={toggleOpen}
     >
       <img
         src={project.img}
         alt={project.title}
-        className={`rounded-xl ${isOpen ? "opacity-10" : "group-hover:opacity-10"}`}
+        className={`rounded-xl object-cover w-full h-full ${isOpen ? "opacity-10" : "group-hover:opacity-10"}`}
       />
       <div
-        className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center ease-linear duration-1000 ${isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+        className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center ease-linear duration-300 ${isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
       >
         <h3 className="md:text-2xl text-xl font-bold text-yellow-100 tracking-wider text-center mb-4">
           {project.title}
