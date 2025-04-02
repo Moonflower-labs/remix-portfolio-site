@@ -21,7 +21,7 @@ export default function Index() {
   return (
     <div className="hero min-h-screen" style={{ backgroundImage: `url(${bgImg})` }}>
       <div className="hero-overlay"></div>
-      <div className="hero-content text-center text-accent z-50 mx-6">
+      <div className="hero-content text-center z-50 mx-6">
         <div className="max-w-md">
           <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold">Moonflower Labs</h1>
           <p className="py-6">Custom <span className="text-primary font-bold">Web Solutions </span>

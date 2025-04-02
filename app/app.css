@@ -3,3 +3,8 @@
 @plugin "daisyui" {
   themes: cmyk --default, dracula --prefersdark, dark, caramellatte, abyss;
 }
+
+@plugin "daisyui/theme" {
+  name: "cmyk";
+  --color-secondary: oklch(71% 0.203 305.504);
+}

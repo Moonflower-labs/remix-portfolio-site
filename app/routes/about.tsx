@@ -2,32 +2,16 @@ import { Link } from "react-router";
 
 export default function About() {
   return (
-    <div className="max-w-[1024px] m-auto p-4 py-8 text-center">
-      <h1 className="text-5xl bg-gradient-to-r py-3 from-primary to-secondary bg-clip-text text-transparent inline-block font-bold mb-4 py-8">
-         About Us
-      </h1> 
-      <div className="flex flex-col gap-4">
-        <p className="px-8 text-xl">
-          Moonflower Labs is a software development company focused on
-          crafting customized solutions for small businesses. Founded by
-          <span className="text-primary text-lg"> Alex Santiago</span>. As a
-          developer, his goal is to create efficient and user-friendly
-          applications. He is passionate about coding and constantly learning
-          to stay up-to-date with the latest technologies. Collaboration and
-          communication are main the priorities, ensuring the understanding
-          and alignment with the vision and goals of our clients. Always
-          committed to delivering projects on time and within budget to
-          achieve client satisfaction. If you are looking for a skilled and
-          dedicated developer to bring your ideas to life,
-          <span className="text-primary text-lg"> Alex</span> is here to
-          help.
+    <div className="max-w-5xl mx-auto p-6 py-12 text-center">
+      <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-10">
+        About Us
+      </h1>
+      <div className="flex flex-col gap-6 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          Hey there! Welcome to <span className="font-bold text-indigo-600">Moonflower Labs</span>, a small-but-mighty software crew dedicated to building custom solutions for small businesses like yours. Founded by <span className="font-semibold text-purple-600">Alex Santiago</span>, a coder with a passion for turning ideas into slick, user-friendly apps. Alex is all about keeping things real—diving into the latest tech, collaborating like a pro, and making sure every project vibes with your goals. On time, on budget, and always with a smile—that’s the Moonflower way. Got a vision? Alex is your guy to make it happen.
         </p>
-        <p className="px-8 text-xl">
-          Moonflower Labs specializes in providing comprehensive services in
-          web design, databases, UI, consulting, and web development. Our
-          expertise in these areas allows us to deliver tailored solutions
-          that meet the specific needs of our clients. For a brief
-          overview of each of these services, visit the <Link to={"/services"} className="link-primary underline">Services section</Link>.
+        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+          We’re pros at whipping up awesome <span className="italic">web designs</span>, taming wild <span className="italic">databases</span>, crafting smooth <span className="italic">UI</span>, dishing out smart <span className="italic">consulting</span>, and building rock-solid <span className="italic">web apps</span>. Basically, we’ve got the full toolkit to tailor solutions just for you. Want the quick scoop on what we do? Swing by our <Link to="/services" className="text-indigo-600 underline hover:text-purple-600 transition-colors">Services section</Link>!
         </p>
       </div>
     </div>
