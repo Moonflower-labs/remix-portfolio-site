@@ -35,7 +35,7 @@ function ProjectItem({ project }: { project: Project }) {
             className="w-full h-full object-cover opacity-80 hover:opacity-60 transition-opacity duration-300"
           />
           <div className="absolute inset-0 flex items-center justify-center p-6">
-            <h3 className="text-3xl md:text-3xl font-bold text-neutral/70 bg-base-300/30 p-1 rounded-lg tracking-wide drop-shadow-md">
+            <h3 className="text-3xl md:text-3xl font-bold text-base-content/70 bg-base-100/80 py-2 px-4 rounded-md tracking-wide drop-shadow-md">
               {project.title}
             </h3>
           </div>

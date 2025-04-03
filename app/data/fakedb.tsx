@@ -60,7 +60,7 @@ export const fakeDb = {
     {
       id: 4,
       img: florImg,
-      title: "Subscriptions/E-commerce Site",
+      title: "E-commerce Webite",
       link: "https://laflorblanca.com",
       icons: [
         <AiFillHtml5 />,
@@ -70,7 +70,7 @@ export const fakeDb = {
         <FaPython />,
       ],
       action: "Visit Site",
-      info: "Python (Flask) webb app. Postgresql Database and Stripe API.",
+      info: "Python (Flask) webb app. Postgresql Database and Stripe API. Support subscriptions and one time payments.",
     },
     {
       id: 5,
@@ -84,7 +84,7 @@ export const fakeDb = {
         <RiJavascriptLine />,
       ],
       action: "Play Game",
-      info: "Fun project built with Vanilla Javascript.",
+      info: "Card Match Game. Fun project built with Vanilla Javascript.",
     },
     {
       id: 6,
@@ -108,7 +108,7 @@ export const fakeDb = {
         <BiLogoTypescript />,
       ],
       action: "Try Out",
-      info: "Todo app built with Typescript.",
+      info: "Todo app written with plain Typescript.",
     },
     {
       id: 8,
@@ -122,7 +122,7 @@ export const fakeDb = {
         <RiJavascriptLine />,
       ],
       action: "Try Out",
-      info: "Notess app using Local Storage, built in Vanilla JS and Bootstrap 5.",
+      info: "Notess app using Local Storage, built with Vanilla JS and Bootstrap 5.",
     },
   ],
   workData: [
