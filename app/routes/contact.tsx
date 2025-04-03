@@ -47,36 +47,32 @@ export default function Contact() {
       <p className="text-center pb-3 mb-6">
         Use the form below to contact us directly.
       </p>
-      <form className="w-full max-w-xl mx-auto mb-6" onSubmit={handleSubmit}>
-        <div className="grid md:grid-cols-2 gap-4 w-full ">
-          <div className="flex flex-col">
-            <label className="uppercase text-sm py-2" htmlFor="name">
-              Name
-            </label>
-            <input
-              className="input input-bordered w-full"
-              name="name"
-              type="text"
-              id="name"
-              autoComplete="false"
-              required
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="uppercase text-sm py-2" htmlFor="phone">
-              Phone
-            </label>
-            <input
-              className="input w-full"
-              name="phone"
-              type="text"
-              id="phone"
-              autoComplete="false"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col py-2">
-          <label className="uppercase text-sm py-2" htmlFor="email">
+      <form onSubmit={handleSubmit}>
+        <fieldset className="fieldset max-w-md mx-auto bg-base-200 border border-base-300 p-4 rounded-box">
+          <label className="fieldset-label" htmlFor="name">
+            Name
+          </label>
+          <input
+            className="input w-full"
+            name="name"
+            type="text"
+            id="name"
+            autoComplete="false"
+            placeholder="Name"
+            required
+          />
+          <label className="fieldset-label" htmlFor="phone">
+            Phone
+          </label>
+          <input
+            className="input w-full"
+            name="phone"
+            type="text"
+            id="phone"
+            placeholder="Phone Number"
+            autoComplete="false"
+          />
+          <label className="fieldset-label" htmlFor="email">
             Email
           </label>
           <input
@@ -85,11 +81,10 @@ export default function Contact() {
             type="email"
             id="email"
             autoComplete="false"
+            placeholder="Email"
             required
           />
-        </div>
-        <div className="flex flex-col py-2">
-          <label className="uppercase text-sm py-2" htmlFor="subject">
+          <label className="fieldset-label" htmlFor="subject">
             Subject
           </label>
           <input
@@ -97,10 +92,9 @@ export default function Contact() {
             type="text"
             name="subject"
             id="subject"
+            placeholder="Subject"
             required
           />
-        </div>
-        <div className="flex flex-col py-2">
           <label className="uppercase text-sm py-2" htmlFor="message">
             Message
           </label>
@@ -111,16 +105,16 @@ export default function Contact() {
             id="message"
             required
           ></textarea>
-        </div>
-        <div className="flex flex-col">
-          <input type="hidden" name="_gotcha" style={{ display: "none" }} />
-          <button
-            className="btn btn-primary"
-            type="submit"
-          >
-            Send Message
-          </button>
-        </div>
+          <div className="flex flex-col">
+            <input type="hidden" name="_gotcha" style={{ display: "none" }} />
+            <button
+              className="btn btn-primary mt-4"
+              type="submit"
+            >
+              Send Message
+            </button>
+          </div>
+        </fieldset>
       </form>
       {submitted && (
         <div className="fixed inset-0 flex items-center justify-center">
