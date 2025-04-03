@@ -1,86 +1,100 @@
+import { motion } from "motion/react";
 import { useState } from "react";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 import type { Project } from "~/utils/definitions";
 
-const ProjectItem = ({ project }: { project: Project }) => {
-  const [showInfo, setShowInfo] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClik = () => {
-    setShowInfo(!showInfo);
-  };
+function ProjectItem({ project }: { project: Project }) {
+  const [isFlipped, setIsFlipped] = useState(false);
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
+  const toggleFlip = (e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+    e.stopPropagation();
+    setIsFlipped(!isFlipped);
   };
 
   return (
-    <div
-      className={`relative flex items-center justify-center h-auto w-full shadow-lg shadow-primary/40 rounded-xl group hover:bg-primary/50 ease-linear duration-300 overflow-hidden ${isOpen ? "bg-gradient-to-r from-primary/50 to-base-300" : ""}`}
-      onClick={toggleOpen}
+    <motion.div
+      className="w-full max-w-md mx-auto aspect-video perspective-1000"
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.3 }}
     >
-      <img
-        src={project.img}
-        alt={project.title}
-        className={`rounded-xl object-cover w-full h-full ${isOpen ? "opacity-10" : "group-hover:opacity-10"}`}
-      />
-      <div
-        className={`absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-center ease-linear duration-300 ${isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+      <motion.div
+        className="relative w-full h-full"
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        style={{ transformStyle: "preserve-3d" }}
+        onClick={toggleFlip}
       >
-        <h3 className="md:text-2xl text-xl font-bold text-yellow-100 tracking-wider text-center mb-4">
-          {project.title}
-        </h3>
-        <div className="flex text-gray-300 w-full max-w-full justify-around pt-2 mb-6 lg:mb-10">
-          {project?.icons.map((icon, index) => (
-            <span key={index}>{icon}</span>
-          ))}
-        </div>
-        {showInfo ? (
-          <span className="btn btn-primary btn-disabled cursor-not-allowed">
-            {project.action}
-          </span>
-        ) : (
-          <>
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                className={`btn btn-primary ${!isOpen ? "pointer-events-none" : ""}`}
-                onClick={(e) => e.stopPropagation()} // Stops card toggle when clicking link
-              >
-                {project.action}
-              </a>)}
-          </>
-        )}
-      </div>
-      <p
-        className={`text-sm text-primary/80 font-bold absolute bottom-2 end-4 cursor-pointer ${isOpen ? "block" : "hidden group-hover:block"}`}
-        onClick={(e) => {
-          e.stopPropagation();
-          handleClik();
-        }}
-      >
-        more info
-      </p>
-      {showInfo && (
-        <div className="w-full h-full absolute bg-zinc-800 text-yellow-50 flex justify-center items-center">
-          <p className="p-4 text-center">
-            {project?.info ? project.info : "No info available"}
-          </p>
-          <span
-            className="cursor-pointer text-white absolute top-1 end-1"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleClik();
-            }}
+        {/* Front Side */}
+        <motion.div
+          className="absolute w-full h-full rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-indigo-600/70 to-gray-800"
+          style={{ backfaceVisibility: "hidden" }}
+        >
+          <img
+            src={project.img}
+            alt={project.title}
+            className="w-full h-full object-cover opacity-80 hover:opacity-60 transition-opacity duration-300"
+          />
+          <div className="absolute inset-0 flex items-center justify-center p-6">
+            <h3 className="text-3xl md:text-3xl font-bold text-neutral/70 bg-base-300/30 p-1 rounded-lg tracking-wide drop-shadow-md">
+              {project.title}
+            </h3>
+          </div>
+          <button
+            className="absolute bottom-3 right-3 text-sm font-semibold text-indigo-300 hover:text-yellow-100 transition-colors duration-300"
+            onClick={toggleFlip}
           >
-            <AiOutlineCloseCircle size={22} />
-          </span>
-        </div>
-      )}
-    </div>
-  );
-};
+            Flip for Details
+          </button>
+        </motion.div>
 
+        {/* Back Side */}
+        <motion.div
+          className="absolute w-full h-full rounded-xl bg-gray-800 text-yellow-50 flex flex-col items-center justify-center p-6 shadow-lg"
+          style={{ backfaceVisibility: "hidden", rotateY: "180deg" }}
+        >
+          <motion.div
+            className="flex gap-4 text-xl text-gray-200 mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            {project.icons.map((icon, index) => (
+              <span key={index} className="hover:scale-125 transition-transform duration-300">{icon}</span>
+            ))}
+          </motion.div>
+          <motion.p
+            className="text-base md:text-lg text-center max-w-xs mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            {project.info || "No info available yet—stay tuned!"}
+          </motion.p>
+          {project.link && (
+            <motion.a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="btn px-6 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all duration-300"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+            >
+              {project.action}
+            </motion.a>
+          )}
+          <button
+            className="absolute bottom-3 right-3 text-sm font-semibold text-indigo-300 hover:text-yellow-100 transition-colors duration-300"
+            onClick={toggleFlip}
+          >
+            Back to Front
+          </button>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+}
 export default ProjectItem;
+
+

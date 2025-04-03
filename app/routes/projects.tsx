@@ -12,6 +12,9 @@ export async function clientLoader() {
   return fakeDb.projectData
 }
 
+export function HydrateFallback() {
+  return <p className="text-4xl font-bold text-center py-14 text-primary">Loading Projects...</p>;
+}
 
 export default function Projects({ loaderData }: Route.ComponentProps) {
   const projectData = loaderData as Project[] || [];
