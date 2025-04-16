@@ -1,14 +1,19 @@
 import { motion } from "motion/react";
-import { useState } from "react";
 import type { Project } from "~/utils/definitions";
+import { Badge } from "@/components/ui/badge";
 
 
-function ProjectItem({ project }: { project: Project }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+interface ProjectItemProps {
+  project: Project;
+  isFlipped: boolean;
+  onFlip: (id: string | number) => void;
+}
+
+function ProjectItem({ project, isFlipped, onFlip }: ProjectItemProps) {
 
   const toggleFlip = (e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsFlipped(!isFlipped);
+    onFlip(project.id);
   };
 
   return (
@@ -20,7 +25,7 @@ function ProjectItem({ project }: { project: Project }) {
       <motion.div
         className="relative w-full h-full"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
+        transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         style={{ transformStyle: "preserve-3d" }}
         onClick={toggleFlip}
       >
@@ -35,21 +40,21 @@ function ProjectItem({ project }: { project: Project }) {
             className="w-full h-full object-cover opacity-80 hover:opacity-60 transition-opacity duration-300"
           />
           <div className="absolute inset-0 flex items-center justify-center p-6">
-            <h3 className="text-3xl md:text-3xl font-bold text-base-content/70 bg-base-100/80 py-2 px-4 rounded-md tracking-wide drop-shadow-md">
+            <h3 className="text-3xl md:text-3xl font-bold text- bg-secondary/70 py-2 px-4 rounded-md tracking-wide drop-shadow-md">
               {project.title}
             </h3>
           </div>
           <button
-            className="absolute bottom-3 right-3 text-sm font-semibold text-indigo-300 hover:text-yellow-100 transition-colors duration-300"
+            className="absolute bottom-3 right-3 text-sm font-semibold"
             onClick={toggleFlip}
           >
-            Flip for Details
+            <Badge> Flip for Details</Badge>
           </button>
         </motion.div>
 
         {/* Back Side */}
         <motion.div
-          className="absolute w-full h-full rounded-xl bg-gray-800 text-yellow-50 flex flex-col items-center justify-center p-6 shadow-lg"
+          className="absolute w-full h-full rounded-xl bg-primary text-secondary/80 flex flex-col items-center justify-center p-6 shadow-lg"
           style={{ backfaceVisibility: "hidden", rotateY: "180deg" }}
         >
           <motion.div

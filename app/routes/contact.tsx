@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
+import { Textarea } from "~/components/ui/textarea";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -41,79 +44,26 @@ export default function Contact() {
 
   return (
     <div className="max-w-[1040px] mx-6 md:mx-auto text-center">
-      <h1 className="text-5xl bg-gradient-to-r py-3 from-primary to-secondary bg-clip-text text-transparent inline-block font-bold mb-4">
+      <h1 className="text-5xl bg-gradient-to-r py-3 from-indigo-600 to-purple-600 bg-clip-text text-transparent inline-block font-bold mb-4">
         Contact Us
       </h1>
       <p className="text-center pb-3 mb-6">
         Use the form below to contact us directly.
       </p>
       <form onSubmit={handleSubmit}>
-        <fieldset className="fieldset max-w-md mx-auto bg-base-200 border border-base-300 p-4 rounded-box">
-          <label className="fieldset-label" htmlFor="name">
-            Name
-          </label>
-          <input
-            className="input w-full"
-            name="name"
-            type="text"
-            id="name"
-            autoComplete="false"
-            placeholder="Name"
-            required
-          />
-          <label className="fieldset-label" htmlFor="phone">
-            Phone
-          </label>
-          <input
-            className="input w-full"
-            name="phone"
-            type="text"
-            id="phone"
-            placeholder="Phone Number"
-            autoComplete="false"
-          />
-          <label className="fieldset-label" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="input w-full"
-            name="email"
-            type="email"
-            id="email"
-            autoComplete="false"
-            placeholder="Email"
-            required
-          />
-          <label className="fieldset-label" htmlFor="subject">
-            Subject
-          </label>
-          <input
-            className="input w-full"
-            type="text"
-            name="subject"
-            id="subject"
-            placeholder="Subject"
-            required
-          />
-          <label className="uppercase text-sm py-2" htmlFor="message">
-            Message
-          </label>
-          <textarea
-            className="textarea w-full"
-            name="message"
-            rows={10}
-            id="message"
-            required
-          ></textarea>
-          <div className="flex flex-col">
-            <input type="hidden" name="_gotcha" style={{ display: "none" }} />
-            <button
-              className="btn btn-primary mt-4"
-              type="submit"
-            >
-              Send Message
-            </button>
-          </div>
+        <fieldset className="max-w-md mx-auto flex flex-col gap-2 border p-4 rounded-lg">
+          <input type="hidden" name="_gotcha" style={{ display: "none" }} />
+          <Input type="text" placeholder="Name" name="name" required />
+          <Input type="text" placeholder="Phone" name="phone" />
+          <Input type="email" placeholder="Email" name="email" required />
+          <Input type="text" placeholder="Subject" name="subject" required />
+          <Textarea name="message" required placeholder="Type your message here." />
+          <Button
+            className="mt-4"
+            type="submit"
+          >
+            Send Message
+          </Button>
         </fieldset>
       </form>
       {submitted && (

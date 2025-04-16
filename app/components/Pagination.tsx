@@ -1,59 +1,51 @@
-import { useNavigate } from "react-router";
-import { useCallback } from "react";
-
-const Pagination = ({ currentPage, totalPages, setCurrentPage }: PaginationProps) => {
-  const navigate = useNavigate();
-
-  const pagesArray = Array.from({ length: totalPages }, (_, index) => index + 1);
+import { useLocation } from "react-router";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 
 
-  const handlePreviousPage = useCallback(() => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  }, [setCurrentPage]);
-
-  const handleNextPage = useCallback(() => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  }, [setCurrentPage]);
-  const handleClickPage = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    setCurrentPage(parseInt(e.currentTarget.value));
-    navigate(`?page=${parseInt(e.currentTarget.value)}`, { viewTransition: true, preventScrollReset: true });
-  }, [navigate, setCurrentPage]);
-
-  return (
-    <div className="flex justify-center gap-5 mt-8 pb-5">
-      <button
-        className={`btn btn-primary ${currentPage === 1 ? 'disabled' : ''}`}
-        onClick={handlePreviousPage}
-        disabled={currentPage === 1}
-      >
-        &lt;
-      </button>
-      {pagesArray.map(page =>
-        <button
-          className={`btn ${currentPage === page ? ' disabled' : ' btn-primary'}`}
-          key={page}
-          onClick={handleClickPage}
-          value={page}
-          disabled={currentPage === page}>
-          {page}
-        </button>
-      )}
-      <button
-        className={`btn btn-primary ${currentPage === totalPages ? 'hidden' : 'block'}`}
-        onClick={handleNextPage}
-        disabled={currentPage === totalPages}
-      >
-        &gt;
-      </button>
-    </div>
-
-  );
-};
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-
 }
 
-export default Pagination;
+const Paginator = ({ currentPage, totalPages }: PaginationProps) => {
+  const location = useLocation().pathname
+  const pagesArray = Array.from({ length: totalPages }, (_, index) => index + 1);
+
+  const handlePreviousPage = () => {
+    return currentPage > 1 ?
+      location + `?page=${currentPage - 1}` :
+      location + `?page=1`;
+  };
+  const handleNextPage = () => {
+    return currentPage < totalPages ?
+      location + `?page=${currentPage + 1}` :
+      location + `?page=${totalPages}`;
+  };
+
+  return (
+    <Pagination className="pb-4">
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious to={handlePreviousPage()} className={currentPage === 1 ? 'disabled' : ''} viewTransition preventScrollReset
+          />
+        </PaginationItem>
+        {pagesArray.map(page =>
+          <PaginationItem key={page}>
+            <PaginationLink to={location + `?page=${page}`} className={`${currentPage === page ? ' disabled' : ' btn-primary'}`} viewTransition preventScrollReset
+              key={page}
+            >
+              {page}
+            </PaginationLink>
+          </PaginationItem>
+        )}
+        <PaginationItem>
+          <PaginationNext to={handleNextPage()} className={currentPage === totalPages ? 'disabled' : ''} viewTransition preventScrollReset
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  );
+};
+
+
+export default Paginator;

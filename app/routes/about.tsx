@@ -3,7 +3,7 @@ import { Link } from "react-router";
 export default function About() {
   return (
     <div className="max-w-5xl mx-auto p-6 py-12 text-center">
-      <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text inline-block text-transparent mb-10">
+      <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-700 to-purple-600 bg-clip-text inline-block text-transparent mb-10">
         About Us
       </h1>
       <div className="flex flex-col gap-6 max-w-3xl mx-auto">

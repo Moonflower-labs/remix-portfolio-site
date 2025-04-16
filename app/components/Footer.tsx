@@ -6,7 +6,7 @@ import { SiDjango, SiFlask, SiTailwindcss } from 'react-icons/si'
 
 export default function Footer() {
   return (
-    <footer className="footer p-10 bg-primary/80 text-primary-content">
+    <footer className="p-10 bg-primary text-primary-foreground/85 flex flex-wrap gap-4 justify-between items-center">
       <aside>
         <p className="font-bold">
           <span className='text-lg'>Moonflower Labs</span> <br />Providing reliable tech since 2022
@@ -14,7 +14,8 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()}</p>
       </aside>
       <nav>
-        <div className="grid grid-flow-col grid-rows-2 md:grid-rows-1 gap-4">
+        <div className="flex flex-wrap gap-1 justify-center items-center">
+          {/* <div className="grid grid-flow-col grid-rows-2 md:grid-rows-1 gap-2"> */}
           <FaHtml5 size={24} />
           <DiCss3 size={24} />
           <RiJavascriptFill size={24} />

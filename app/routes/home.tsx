@@ -2,6 +2,7 @@ import { Link, href, isRouteErrorResponse } from "react-router";
 import bgImg from "~/images/bg.jpg"
 import type { Route } from "./+types/home"
 import { TypeAnimation } from "react-type-animation";
+import { Button } from "@/components/ui/button";
 
 export const meta: Route.MetaFunction = () => {
   return [
@@ -14,32 +15,32 @@ export const meta: Route.MetaFunction = () => {
 export default function Index() {
 
   return (
-    <div className="hero min-h-screen" style={{ backgroundImage: `url(${bgImg})` }}>
-      <div className="hero-overlay"></div>
-      <div className="hero-content text-center text-primary-content z-50 mx-6">
-        <div className="max-w-md">
-          <h1 className="text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold">Moonflower Labs</h1>
-          <p className="py-6">Custom <span className="text-primary font-bold">Web Solutions </span>
-            for growing businesses</p>
-          <TypeAnimation
-            sequence={[
-              "Frontend",
-              1000,
-              "Backend",
-              1000,
-              "Databases",
-              1000,
-              "Payment Gateways",
-              1000,
-              "API's",
-              1000,
-            ]}
-            speed={50}
-            className="mb-4 text-2xl text-primary font-semibold block"
-            repeat={Infinity}
-          />
-          <Link to={href("/about")} className="btn btn-primary">Learn more</Link>
-        </div>
+    <div className="min-h-screen flex justify-between items-center gap-2">
+      {/* style={{ backgroundImage: `url(${bgImg})` }}s */}
+      <div className="max-w-md text-center mx-auto">
+        <h1 className="text-5xl bg-gradient-to-r from-violet-700 via-indigo-600 to-purple-700 bg-clip-text text-transparent font-bold">Moonflower Labs</h1>
+        <p className="py-6">Custom <span className="font-bold">Web Solutions </span>
+          for growing businesses</p>
+        <TypeAnimation
+          sequence={[
+            "Frontend",
+            1000,
+            "Backend",
+            1000,
+            "Databases",
+            1000,
+            "Payment Gateways",
+            1000,
+            "API's",
+            1000,
+          ]}
+          speed={50}
+          className="mb-4 text-2xl font-semibold block"
+          repeat={Infinity}
+        />
+        <Link to={href("/about")} >
+          <Button className="cursor-pointer">Learn more</Button>
+        </Link>
       </div>
     </div>
   );
