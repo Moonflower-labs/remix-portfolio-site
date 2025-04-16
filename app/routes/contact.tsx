@@ -1,46 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    let timer: string | number | NodeJS.Timeout | undefined;
-    if (submitted) {
-      timer = setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    }
-    return () => clearTimeout(timer);
-  }, [submitted]);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    try {
-      const response = await fetch(
-        "https://getform.io/f/f5fc6514-76cf-48de-b6dc-fcf613335978",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      console.log(response);
-      event.currentTarget.reset();
-      setSubmitted(true);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
 
   return (
     <div className="max-w-[1040px] mx-6 md:mx-auto text-center">
@@ -50,9 +12,13 @@ export default function Contact() {
       <p className="text-center pb-3 mb-6">
         Use the form below to contact us directly.
       </p>
-      <form onSubmit={handleSubmit}>
+      <form action={"https://api.web3forms.com/submit"} method="POST">
         <fieldset className="max-w-md mx-auto flex flex-col gap-2 border p-4 rounded-lg">
-          <input type="hidden" name="_gotcha" style={{ display: "none" }} />
+          <input type="hidden" name="access_key" value={"3ae5d6c2-8fe6-4eb6-896a-c5c7764d7a18"} />
+          {/* Honeypot Spam Protection  */}
+          <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+          {/* Custom Confirmation / Success Page  */}
+          <input type="hidden" name="redirect" value="https://moonflowerlabs.vercel.app/thanks" />
           <Input type="text" placeholder="Name" name="name" required />
           <Input type="text" placeholder="Phone" name="phone" />
           <Input type="email" placeholder="Email" name="email" required />
@@ -66,13 +32,6 @@ export default function Contact() {
           </Button>
         </fieldset>
       </form>
-      {submitted && (
-        <div className="fixed inset-0 flex items-center justify-center">
-          <div className="bg-zinc-800 text-orange-200 rounded-lg p-6 shadow-lg">
-            <p className="text-xl">Form submitted successfully!</p>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
