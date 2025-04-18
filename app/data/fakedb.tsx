@@ -1,5 +1,6 @@
 import dasboargImg from "~/images/nextjs-dashboard.jpeg"
 import beautyImg from "~/images/beauty.jpeg"
+import taskImg from "~/images/taskzen.png"
 import weatherImg from "~/images/weatherApp.jpeg";
 import florImg from "~/images/florBlanca.jpeg";
 import gameImg from "~/images/game.jpeg";
@@ -11,7 +12,7 @@ import { AiFillHtml5 } from "react-icons/ai";
 import { RiJavascriptLine } from "react-icons/ri";
 import { FaPython, FaCss3, FaBootstrap } from "react-icons/fa";
 import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
-import { SiTailwindcss } from "react-icons/si";
+import { SiDjango, SiTailwindcss } from "react-icons/si";
 
 export const fakeDb = {
   projectData: [
@@ -45,6 +46,20 @@ export const fakeDb = {
     },
     {
       id: 3,
+      img: taskImg,
+      title: "Task Zen",
+      icons: [
+        <SiDjango />,
+        <BiLogoReact />,
+        <FaCss3 />,
+        <FaBootstrap />,
+        <RiJavascriptLine />,
+      ],
+      action: "Visit Site",
+      info: "Task Manager web app. Django backend and React frontend.",
+    },
+    {
+      id: 4,
       img: weatherImg,
       title: "Weather App",
       link: "https://moonflower-labs.github.io/Moonflowerlabs/weatherApp/index.html",
@@ -58,7 +73,7 @@ export const fakeDb = {
       info: "Weather application using the Open Weather API.",
     },
     {
-      id: 4,
+      id: 5,
       img: florImg,
       title: "E-commerce Webite",
       link: "https://laflorblanca.com",
@@ -73,7 +88,7 @@ export const fakeDb = {
       info: "Python (Flask) webb app. Postgresql Database and Stripe API. Support subscriptions and one time payments.",
     },
     {
-      id: 5,
+      id: 6,
       img: gameImg,
       title: "Flip Card Game",
       link: "https://moonflower-labs.github.io/Moonflowerlabs/flipcardGame/index.html",
@@ -87,7 +102,7 @@ export const fakeDb = {
       info: "Card Match Game. Fun project built with Vanilla Javascript.",
     },
     {
-      id: 6,
+      id: 7,
       img: songImg,
       title: "Song Studio App",
       icons: [
@@ -98,7 +113,7 @@ export const fakeDb = {
       info: "Song Studio app.",
     },
     {
-      id: 7,
+      id: 8,
       img: todoImg,
       title: "Todo App",
       link: "https://todo-app-a5f0c.web.app",
@@ -111,7 +126,7 @@ export const fakeDb = {
       info: "Todo app written with plain Typescript.",
     },
     {
-      id: 8,
+      id: 9,
       img: notesImg,
       title: "Notes App",
       link: "https://moonflower-labs.github.io/Moonflowerlabs/notesApp/index.html",
