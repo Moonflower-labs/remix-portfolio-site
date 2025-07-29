@@ -176,37 +176,37 @@ export const fakeDb = {
     {
       "id": 1,
       "title": "Web Design",
-      "text": "Moonflower Labs designs modern, responsive websites tailored to client specifications. Utilizing HTML, CSS, Tailwind CSS, and Bootstrap, the studio creates visually appealing, user-friendly interfaces optimized for all devices."
+      "text": "Responsive, eye-catching websites crafted with HTML, CSS, Tailwind CSS, and Bootstrap for seamless user experiences across devices."
     },
     {
       "id": 2,
       "title": "Database Solutions",
-      "text": "Moonflower Labs provides scalable database solutions using SQL and PostgreSQL, ensuring secure and efficient data management for web applications."
+      "text": "Moonflower Labs builds secure, scalable database systems using SQL and PostgreSQL, optimized for reliable web application data management."
     },
     {
       "id": 3,
-      "title": "UI Design",
-      "text": "Moonflower Labs develops intuitive user interfaces with React, JavaScript, and Tailwind CSS, focusing on usability and aesthetic appeal to enhance user engagement."
+      "title": "UI (User Interface) Design",
+      "text": "Clean, intuitive interfaces designed with React, JavaScript, and Tailwind CSS to boost user engagement."
     },
     {
       "id": 4,
       "title": "Tech Consulting",
-      "text": "Moonflower Labs offers expert consulting on web development technologies, providing strategic guidance on frameworks, tools, and solutions to meet client objectives."
+      "text": "Expert guidance on web development tools and frameworks, tailored to bring client project visions to life."
     },
     {
       "id": 5,
       "title": "Web Development",
-      "text": "Moonflower Labs builds robust web applications using JavaScript, Django, Remix (React Router), and Flask, delivering fast, scalable, and secure solutions customized for client needs."
+      "text": "Fast, secure web applications created with JavaScript, Django, Next.js, and Flask, customized to client needs."
     },
     {
       "id": 6,
       "title": "Website Maintenance",
-      "text": "Moonflower Labs ensures websites remain secure and up-to-date through comprehensive maintenance services, including updates, performance optimization, and bug fixes."
+      "text": "Moonflower Labs ensures reliable website performance through updates, security enhancements, and optimization services."
     },
     {
       "id": 7,
       "title": "API Integration",
-      "text": "Moonflower Labs integrates APIs, such as Stripe and Open Weather API, to enhance web application functionality, ensuring seamless connectivity and performance."
+      "text": "Seamless API connectivity, including Stripe and Open Weather API, integrated to enhance web application functionality."
     }
   ]
 } 

@@ -38,7 +38,7 @@ export default function Services({ loaderData }: Route.ComponentProps) {
                 service.text.split("Moonflower Labs").map((part, index) => (
                   <React.Fragment key={index}>
                     {index > 0 && (
-                      <span className="font-bold text-purple-600">Moonflower Labs</span>
+                      <span className="font-bold text-purple-500">Moonflower Labs</span>
                     )}
                     {part}
                   </React.Fragment>
