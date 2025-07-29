@@ -185,7 +185,7 @@ export const fakeDb = {
     },
     {
       "id": 3,
-      "title": "UI (User Interface) Design",
+      "title": "UI Design",
       "text": "Clean, intuitive interfaces designed with React, JavaScript, and Tailwind CSS to boost user engagement."
     },
     {
