@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="p-10 bg-primary text-primary-foreground/85 flex flex-wrap gap-4 justify-between items-center">
       <aside>
         <p className="font-bold">
-          <span className='text-lg'>Moonflower Labs</span> <br />Providing reliable tech since 2022
+          <span className='text-lg'>Moonflower Labs</span> <br />Building Modern Web Solutions
         </p>
         <p>&copy; {new Date().getFullYear()}</p>
       </aside>

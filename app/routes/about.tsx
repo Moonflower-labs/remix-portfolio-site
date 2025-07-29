@@ -8,10 +8,10 @@ export default function About() {
       </h1>
       <div className="flex flex-col gap-6 max-w-3xl mx-auto">
         <p className="text-lg md:text-xl leading-relaxed">
-          Hey there! Welcome to <span className="font-bold text-indigo-600">Moonflower Labs</span>, a small-but-mighty software crew dedicated to building custom solutions for small businesses like yours. Founded by <span className="font-semibold text-purple-600">Alex Santiago</span>, a coder with a passion for turning ideas into slick, user-friendly apps. Alex is all about keeping things real—diving into the latest tech, collaborating like a pro, and making sure every project vibes with your goals. On time, on budget, and always with a smile—that’s the Moonflower way. Got a vision? Alex is your guy to make it happen.
+          Moonflower Labs is a freelance web development studio dedicated to crafting modern, user-friendly web applications for small businesses. Specializing in JavaScript, Django, Python, and SQL, Moonflower Labs delivers clean, efficient, and responsive websites tailored to client needs. With a focus on responsive design and clean code, the studio is committed to turning ideas into functional, high-quality web solutions.
         </p>
         <p className="text-lg md:text-xl leading-relaxed">
-          We’re pros at whipping up awesome <span className="italic">web designs</span>, taming wild <span className="italic">databases</span>, crafting smooth <span className="italic">UI</span>, dishing out smart <span className="italic">consulting</span>, and building rock-solid <span className="italic">web apps</span>. Basically, we’ve got the full toolkit to tailor solutions just for you. Want the quick scoop on what we do? Swing by our <Link to="/services" className="text-indigo-600 underline hover:text-purple-600 transition-colors">Services section</Link>!
+          Services include custom web development, user interface design, and database management, leveraging tools like HTML, CSS, Tailwind CSS, and Django. Explore the <Link to="/projects" className="text-indigo-600 underline hover:text-purple-600 transition-colors">Projects section</Link> to see examples of work or visit <Link to="/contact" className="text-indigo-600 underline hover:text-purple-600 transition-colors">Get in Touch</Link> to discuss your next project.
         </p>
       </div>
     </div>

@@ -19,8 +19,8 @@ export default function Index() {
       {/* style={{ backgroundImage: `url(${bgImg})` }}s */}
       <div className="max-w-md text-center mx-auto">
         <h1 className="text-5xl bg-gradient-to-r from-violet-700 via-indigo-600 to-purple-700 bg-clip-text text-transparent font-bold">Moonflower Labs</h1>
-        <p className="py-6">Custom <span className="font-bold">Web Solutions </span>
-          for growing businesses</p>
+        <p className="text-2xl py-6">Crafting <span className="font-bold">Modern </span>
+          Web Applications</p>
         <TypeAnimation
           sequence={[
             "Frontend",
@@ -35,7 +35,7 @@ export default function Index() {
             1000,
           ]}
           speed={50}
-          className="mb-4 text-2xl font-semibold block"
+          className="mb-4 text-xl font-semibold block"
           repeat={Infinity}
         />
         <Link to={href("/about")} >

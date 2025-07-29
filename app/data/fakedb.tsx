@@ -176,37 +176,37 @@ export const fakeDb = {
     {
       "id": 1,
       "title": "Web Design",
-      "text": "We whip up awesome, easy-to-use websites that totally vibe with your brand. Think cool designs that work on any device and make your visitors go'swow'—we've got you covered to stand out from the crowd."
+      "text": "Moonflower Labs designs modern, responsive websites tailored to client specifications. Utilizing HTML, CSS, Tailwind CSS, and Bootstrap, the studio creates visually appealing, user-friendly interfaces optimized for all devices."
     },
     {
       "id": 2,
       "title": "Database Solutions",
-      "text": "Got data? We'll sort it out with slick database setups that are safe, grow with you, and handle the heavy lifting. From planning to tweaking, we make your info work harder so you don't have to."
+      "text": "Moonflower Labs provides scalable database solutions using SQL and PostgreSQL, ensuring secure and efficient data management for web applications."
     },
     {
       "id": 3,
-      "title": "UI (User Interface) Design",
-      "text": "We're all about making your app or site look good and feel great to use. Our UI designs are pretty, simple, and get people clicking—because happy users mean more wins for you."
+      "title": "UI Design",
+      "text": "Moonflower Labs develops intuitive user interfaces with React, JavaScript, and Tailwind CSS, focusing on usability and aesthetic appeal to enhance user engagement."
     },
     {
       "id": 4,
       "title": "Tech Consulting",
-      "text": "Not sure what tech to pick? We've got your back. We chat with you, figure out what you need, and dish out no-nonsense advice on software, systems, and strategies that fit just right."
+      "text": "Moonflower Labs offers expert consulting on web development technologies, providing strategic guidance on frameworks, tools, and solutions to meet client objectives."
     },
     {
       "id": 5,
       "title": "Web Development",
-      "text": "Got a big idea? We'll build it into a killer web app or site. At Moonflower Labs, we use the latest tools to make stuff that's fast, secure, and ready to roll—simple or fancy, we nail it."
+      "text": "Moonflower Labs builds robust web applications using JavaScript, Django, Remix (React Router), and Flask, delivering fast, scalable, and secure solutions customized for client needs."
     },
     {
       "id": 6,
       "title": "Website Maintenance",
-      "text": "Keep your site running smooth without the hassle. We handle updates, fixes, and tune-ups so it stays fresh, safe, and ready for whatever—leaving you to focus on the fun stuff."
+      "text": "Moonflower Labs ensures websites remain secure and up-to-date through comprehensive maintenance services, including updates, performance optimization, and bug fixes."
     },
     {
       "id": 7,
       "title": "API Integration",
-      "text": "Want your systems to play nice together? We hook up APIs to level up your site or app, making everything flow better and work smarter—custom-fit for whatever you're dreaming up."
+      "text": "Moonflower Labs integrates APIs, such as Stripe and Open Weather API, to enhance web application functionality, ensuring seamless connectivity and performance."
     }
   ]
 } 
